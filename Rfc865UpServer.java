@@ -14,6 +14,7 @@ public class Rfc865UpServer {
         while(true){
             byte[] buffer = new byte[1024];
             DatagramPacket request = new DatagramPacket(buffer, buffer.length);
+            socket.receive(request);
             String received = new String(request.getData(), 0, request.getLength());
             System.out.println("Server received: " + received);
 
